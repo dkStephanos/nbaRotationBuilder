@@ -9,12 +9,15 @@ const Totals = (props) => {
 	return (
 		<Card style={{ height: '200px', width: '300px' }}>
 			<CardContent>
+				<Typography variant='h6' component='div'>
+					Percent Assigned
+				</Typography>
 				<Typography variant='subtitle2' component='div'>
-					{`Percent Assigned Overall: ${getPercentAssigned(props.rotations)}%`}
+					{`Overall: ${getPercentAssigned(props.rotations)}%`}
 				</Typography>
 				{POSITIONS.map((pos) => (
 					<Typography variant='subtitle2' component='div'>
-						{`Percent Assigned ${pos}: ${getPercentAssignedByPosition(props.rotations, pos)}%`}
+						{`${pos}: ${getPercentAssignedByPosition(props.rotations, pos)}%`}
 					</Typography>
 				))}
 			</CardContent>
