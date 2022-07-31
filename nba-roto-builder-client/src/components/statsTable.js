@@ -8,12 +8,13 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { fetchTeamLineups } from '../actions/team';
+import { TEAM } from '../constants';
 
 const StatsTable = (props) => {
 	const [lineups, setLineups] = useState(null);
 
 	useEffect(() => {
-		fetchTeamLineups('1610612756', setLineups);
+		fetchTeamLineups(TEAM, setLineups);
 	}, []);
 
 	return (

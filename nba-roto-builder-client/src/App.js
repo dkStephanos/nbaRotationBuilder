@@ -10,7 +10,7 @@ import Table from './components/statsTable';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import Background from './imgs/background.jpg';
-import { makeRotationsDict } from './constants';
+import { makeRotationsDict, TEAM } from './constants';
 
 function useStateRef(initialValue) {
 	const [value, setValue] = useState(initialValue);
@@ -30,7 +30,7 @@ function App() {
 	const [rotations, setRotations] = useState(makeRotationsDict());
 
 	useEffect(() => {
-		fetchTeamRoster('1610612756', setRoster);
+		fetchTeamRoster(TEAM, setRoster);
 	}, []);
 
 	return (

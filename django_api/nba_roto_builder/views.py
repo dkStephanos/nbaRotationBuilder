@@ -13,9 +13,8 @@ class Players(View):
 
 
 class Lineups(View):
-    def get(self, request):
-        nba_teams = teams.get_teams()
-        dash = teamdashlineups.TeamDashLineups(nba_teams[0]["id"])
+    def get(self, request, teamId):
+        dash = teamdashlineups.TeamDashLineups(teamId)
 
         return HttpResponse(
             content=json.dumps(
@@ -28,8 +27,7 @@ class Lineups(View):
 
 
 class Roster(View):
-    def get(self, request):
-        nba_teams = teams.get_teams()
-        roster = commonteamroster.CommonTeamRoster(nba_teams[0]["id"])
+    def get(self, request, teamId):
+        roster = commonteamroster.CommonTeamRoster(teamId)
 
         return HttpResponse(content=roster.common_team_roster.get_json())

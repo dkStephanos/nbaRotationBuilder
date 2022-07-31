@@ -1,5 +1,7 @@
 export const API_URL = 'http://localhost:8000/api/';
 
+export const TEAM = '1610612756';
+
 export const makeRotationsDict = () => {
 	const rotations = {};
 
