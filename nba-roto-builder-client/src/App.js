@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { fetchTeamRoster } from './actions/team';
 
 function App() {
 	const [roster, setRoster] = useState([]);
 
 	useEffect(() => {
-		fetch('http://localhost:8000/api/roster/').then((data) =>
-			data.json().then((data) => setRoster(data.data))
-		);
+		fetchTeamRoster('1610612756', setRoster);
 	}, []);
 
 	return (
