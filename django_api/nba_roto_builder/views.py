@@ -1,6 +1,6 @@
 from django.views import View
 from django.http import HttpResponse
-from nba_api.stats.endpoints import teamdashlineups
+from nba_api.stats.endpoints import teamdashlineups, commonteamroster
 from nba_api.stats.static import teams, players
 import json
 
@@ -25,3 +25,11 @@ class Lineups(View):
                 }
             )
         )
+
+
+class Roster(View):
+    def get(self, request):
+        nba_teams = teams.get_teams()
+        roster = commonteamroster.CommonTeamRoster(nba_teams[0]["id"])
+
+        return HttpResponse(content=roster.common_team_roster.get_json())
