@@ -22,7 +22,7 @@ const position_styles = {
 const Court = (props) => {
 	const [{ canDrop, isOver }, drop] = useDrop(() => ({
 		accept: 'player',
-		drop: () => ({ name: 'Dustbin' }),
+		drop: (player) => console.log(player),
 		collect: (monitor) => ({
 			isOver: monitor.isOver(),
 			canDrop: monitor.canDrop(),
@@ -31,9 +31,9 @@ const Court = (props) => {
 	const isActive = canDrop && isOver;
 	let backgroundColor = '#222';
 	if (isActive) {
-		backgroundColor = 'darkgreen';
+		backgroundColor = 'darkpurple';
 	} else if (canDrop) {
-		backgroundColor = 'darkkhaki';
+		backgroundColor = 'purple';
 	}
 
 	return (

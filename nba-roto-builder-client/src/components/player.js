@@ -21,13 +21,7 @@ const Player = (props) => {
 
 	const [{ isDragging }, drag] = useDrag(() => ({
 		type: 'player',
-		item: { name: props.player[3] },
-		end: (item, monitor) => {
-			const dropResult = monitor.getDropResult();
-			if (item && dropResult) {
-				alert(`You dropped ${item.name} into ${dropResult.name}!`);
-			}
-		},
+		item: { player: props.player },
 		collect: (monitor) => ({
 			isDragging: monitor.isDragging(),
 			handlerId: monitor.getHandlerId(),
@@ -37,12 +31,12 @@ const Player = (props) => {
 
 	const headshot = (
 		<object
+			aria-label='headshot'
 			style={{ height: '80px' }}
 			data={`https://nba-players.herokuapp.com/players/${props.player[3].split(' ')[1]}/${
 				props.player[3].split(' ')[0]
 			}`}
-			type='image/png'
-			alt='headshot'></object>
+			type='image/png'></object>
 	);
 	return (
 		<Card ref={drag} style={{ opacity, height: '200px', width: '200px' }}>
