@@ -1,4 +1,7 @@
+import { useState } from 'react';
 import { useDrop } from 'react-dnd';
+import Headshot from './headshot';
+import { Tooltip } from '@mui/material';
 
 const style = {
 	height: '4rem',
@@ -15,9 +18,11 @@ const style = {
 };
 
 const Position = (props) => {
+	const [player, setPlayer] = useState(null);
+
 	const [{ canDrop, isOver }, drop] = useDrop(() => ({
 		accept: 'player',
-		drop: (player) => console.log(player),
+		drop: (val) => setPlayer(val.player),
 		collect: (monitor) => ({
 			isOver: monitor.isOver(),
 			canDrop: monitor.canDrop(),
@@ -32,12 +37,20 @@ const Position = (props) => {
 	}
 
 	return (
-		<div
-			ref={drop}
-			style={{ ...style, ...props.position_styles[props.pos.abrv], backgroundColor }}
-			data-testid='dustbin'>
-			{isActive ? 'Release to drop' : props.pos.abrv}
-		</div>
+		<Tooltip title={player && player[3]}>
+			<div
+				ref={drop}
+				style={{ ...style, ...props.position_styles[props.pos.abrv], backgroundColor }}
+				data-testid='dustbin'>
+				{isActive ? (
+					'Release to drop'
+				) : player == null ? (
+					props.pos.abrv
+				) : (
+					<Headshot size='sm' player={player} />
+				)}
+			</div>
+		</Tooltip>
 	);
 };
 
