@@ -7,7 +7,7 @@ const POSITIONS = ['PG', 'SG', 'SF', 'PF', 'C'];
 
 const Totals = (props) => {
 	return (
-		<Card style={{ height: '200px', width: '300px' }}>
+		<Card style={{ height: '200px', width: '300px', margin: '5px' }}>
 			<CardContent>
 				<Typography variant='h6' component='div'>
 					Percent Assigned

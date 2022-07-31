@@ -29,7 +29,8 @@ const StatsTable = (props) => {
 			<Table sx={{ minWidth: 650 }} size='small' aria-label='a dense table'>
 				<TableHead>
 					<TableRow>
-						{lineups && lineups.headers.slice(10).map((header) => <TableCell>{header}</TableCell>)}
+						{lineups &&
+							lineups.headers.slice(0, 25).map((header) => <TableCell>{header}</TableCell>)}
 					</TableRow>
 				</TableHead>
 				<TableBody>
@@ -38,7 +39,7 @@ const StatsTable = (props) => {
 							<TableRow
 								key={row + '-tb-row'}
 								sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-								{row && row.slice(10).map((header) => <TableCell>{header}</TableCell>)}
+								{row && row.slice(0, 25).map((header) => <TableCell>{header}</TableCell>)}
 							</TableRow>
 						))}
 				</TableBody>
