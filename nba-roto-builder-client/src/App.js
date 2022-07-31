@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import './App.css';
 import { fetchTeamRoster } from './actions/team';
 import Roster from './components/roster';
+import Totals from './components/totals';
 import Court from './components/court';
 import MenuAppBar from './components/appbar';
 import Table from './components/statsTable';
@@ -45,6 +46,7 @@ function App() {
 						setRotations(newRotation);
 					}}
 				/>
+				<Totals rotations={rotations} />
 				<Roster roster={roster} />
 				<Table />
 			</DndProvider>
