@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'students',
+    'nba_roto_builder',
 ]
 
 MIDDLEWARE = [
