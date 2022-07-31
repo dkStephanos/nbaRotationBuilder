@@ -34,7 +34,7 @@ const Court = (props) => {
 				{positions.map((pos) => (
 					<Position pos={pos} position_styles={position_styles} />
 				))}
-				<GameSlider />
+				<GameSlider gameMin={props.gameMin} handleSliderChange={props.handleSliderChange} />
 			</Paper>
 		</div>
 	);

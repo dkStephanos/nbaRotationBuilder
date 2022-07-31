@@ -11,6 +11,7 @@ import Background from './imgs/background.jpg';
 
 function App() {
 	const [roster, setRoster] = useState([]);
+	const [gameMin, setGameMin] = useState(0);
 
 	useEffect(() => {
 		fetchTeamRoster('1610612756', setRoster);
@@ -20,7 +21,7 @@ function App() {
 		<div className='App' style={{ backgroundImage: `url(${Background})`, height: '1000px' }}>
 			<DndProvider backend={HTML5Backend}>
 				<MenuAppBar />
-				<Court />
+				<Court gameMin={gameMin} handleSliderChange={(event) => setGameMin(event.target.value)} />
 				<Roster roster={roster} />
 				<Table />
 			</DndProvider>
