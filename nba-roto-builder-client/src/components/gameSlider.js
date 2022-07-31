@@ -30,7 +30,7 @@ const GameSlider = (props) => {
 		<Box sx={{ paddingLeft: '40px', width: 650, position: 'absolute', top: '88%' }}>
 			<Slider
 				onChange={props.handleSliderChange}
-				step={props.gameMin}
+				value={props.gameMin}
 				defaultValue={0}
 				step={1}
 				max={48}

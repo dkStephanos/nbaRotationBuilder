@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 
 const Headshot = (props) => {
-	console.log(props);
 	const [error, setError] = useState(false);
 	useEffect(() => {
 		fetch(

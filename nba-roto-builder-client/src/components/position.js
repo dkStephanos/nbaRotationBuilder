@@ -18,11 +18,9 @@ const style = {
 };
 
 const Position = (props) => {
-	const [player, setPlayer] = useState(null);
-
 	const [{ canDrop, isOver }, drop] = useDrop(() => ({
 		accept: 'player',
-		drop: (val) => setPlayer(val.player),
+		drop: (val) => props.setPlayer(props.pos.abrv, val.player),
 		collect: (monitor) => ({
 			isOver: monitor.isOver(),
 			canDrop: monitor.canDrop(),
@@ -37,17 +35,17 @@ const Position = (props) => {
 	}
 
 	return (
-		<Tooltip title={player ? player[3] : 'Unassigned'}>
+		<Tooltip title={props.player ? props.player[3] : 'Unassigned'}>
 			<div
 				ref={drop}
 				style={{ ...style, ...props.position_styles[props.pos.abrv], backgroundColor }}
 				data-testid='dustbin'>
 				{isActive ? (
 					'Release to drop'
-				) : player == null ? (
+				) : props.player == null ? (
 					props.pos.abrv
 				) : (
-					<Headshot size='sm' player={player} />
+					<Headshot size='sm' player={props.player} />
 				)}
 			</div>
 		</Tooltip>

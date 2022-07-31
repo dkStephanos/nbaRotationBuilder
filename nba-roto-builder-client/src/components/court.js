@@ -32,7 +32,12 @@ const Court = (props) => {
 					position: 'relative',
 				}}>
 				{positions.map((pos) => (
-					<Position pos={pos} position_styles={position_styles} />
+					<Position
+						pos={pos}
+						player={props.rotation[pos.abrv]}
+						setPlayer={(pos, player) => props.handlePositionSet(pos, player, props.gameMin)}
+						position_styles={position_styles}
+					/>
 				))}
 				<GameSlider gameMin={props.gameMin} handleSliderChange={props.handleSliderChange} />
 			</Paper>
