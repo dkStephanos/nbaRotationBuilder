@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from nba_roto_builder.views import Players
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('players/', Players.as_view())
 ]
