@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { fetchTeamRoster } from './actions/team';
 import Roster from './components/roster';
+import Court from './components/court';
 import MenuAppBar from './components/appbar';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
 		<div className='App'>
 			<MenuAppBar />
 			<Roster roster={roster} />
+			<Court />
 		</div>
 	);
 }

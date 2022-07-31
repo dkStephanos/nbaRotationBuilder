@@ -6,7 +6,15 @@ import { Paper } from '@mui/material';
 
 const Roster = (props) => {
 	return (
-		<Paper elevation='5' style={{ overflow: 'auto', height: '1000px', width: '200px' }}>
+		<Paper
+			elevation='5'
+			style={{
+				overflow: 'auto',
+				height: '1000px',
+				width: '200px',
+				display: 'inline-block',
+				float: 'right',
+			}}>
 			<Typography variant='h5'>Team Roster</Typography>
 			<List>
 				{props.roster.map((player) => (
