@@ -1,13 +1,15 @@
 from django.views import View
 from django.http import HttpResponse
 from nba_api.stats.endpoints import teamdashlineups
-from nba_api.stats.static import teams
+from nba_api.stats.static import teams, players
 import json
 
 
 class Players(View):
     def get(self, request):
-        pass
+        active_players = players.get_active_players()
+
+        return HttpResponse(content=json.dumps(active_players))
 
 
 class Lineups(View):
