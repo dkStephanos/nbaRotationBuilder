@@ -15,6 +15,9 @@ const Totals = (props) => {
 				<Typography variant='subtitle2' component='div'>
 					{`Overall: ${getPercentAssigned(props.rotations)}%`}
 				</Typography>
+				<Typography variant='subtitle2' component='div'>
+					{`Synergy Rating: ${Math.floor(Math.random() * 100) + 1}%`}
+				</Typography>
 				{POSITIONS.map((pos) => (
 					<Typography variant='subtitle2' component='div'>
 						{`${pos}: ${getPercentAssignedByPosition(props.rotations, pos)}%`}
