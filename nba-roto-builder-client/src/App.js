@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { fetchTeamRoster } from './actions/team';
 import Player from './components/player';
+import MenuAppBar from './components/appbar';
 
 function App() {
 	const [roster, setRoster] = useState([]);
@@ -13,19 +13,7 @@ function App() {
 
 	return (
 		<div className='App'>
-			<header className='App-header'>
-				<img src={logo} className='App-logo' alt='logo' />
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a
-					className='App-link'
-					href='https://reactjs.org'
-					target='_blank'
-					rel='noopener noreferrer'>
-					Learn React
-				</a>
-			</header>
+			<MenuAppBar />
 			{roster.map((player) => (
 				<Player player={player}></Player>
 			))}
