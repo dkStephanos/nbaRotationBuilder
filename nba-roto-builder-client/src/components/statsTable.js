@@ -29,16 +29,16 @@ const StatsTable = (props) => {
 			<Table sx={{ minWidth: 650 }} size='small' aria-label='a dense table'>
 				<TableHead>
 					<TableRow>
-						{lineups && lineups.headers.map((header) => <TableCell>{header}</TableCell>)}
+						{lineups && lineups.headers.slice(10).map((header) => <TableCell>{header}</TableCell>)}
 					</TableRow>
 				</TableHead>
 				<TableBody>
 					{lineups &&
-						lineups.data.map((row) => (
+						lineups.data.slice(50).map((row) => (
 							<TableRow
 								key={row + '-tb-row'}
 								sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-								{row && row.map((header) => <TableCell>{header}</TableCell>)}
+								{row && row.slice(10).map((header) => <TableCell>{header}</TableCell>)}
 							</TableRow>
 						))}
 				</TableBody>
@@ -47,4 +47,4 @@ const StatsTable = (props) => {
 	);
 };
 
-export default StatsTable;
+export default React.memo(StatsTable);
