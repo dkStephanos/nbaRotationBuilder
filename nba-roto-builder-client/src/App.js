@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { fetchTeamRoster } from './actions/team';
+import Player from './components/player';
 
 function App() {
 	const [roster, setRoster] = useState([]);
@@ -25,7 +26,9 @@ function App() {
 					Learn React
 				</a>
 			</header>
-			{roster.map((player) => player)}
+			{roster.map((player) => (
+				<Player player={player}></Player>
+			))}
 		</div>
 	);
 }
