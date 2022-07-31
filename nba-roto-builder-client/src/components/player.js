@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Card } from '@mui/material';
+import { useDrag } from 'react-dnd';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -18,6 +19,22 @@ const Player = (props) => {
 		});
 	}, []);
 
+	const [{ isDragging }, drag] = useDrag(() => ({
+		type: 'player',
+		item: { name: props.player[3] },
+		end: (item, monitor) => {
+			const dropResult = monitor.getDropResult();
+			if (item && dropResult) {
+				alert(`You dropped ${item.name} into ${dropResult.name}!`);
+			}
+		},
+		collect: (monitor) => ({
+			isDragging: monitor.isDragging(),
+			handlerId: monitor.getHandlerId(),
+		}),
+	}));
+	const opacity = isDragging ? 0.4 : 1;
+
 	const headshot = (
 		<object
 			style={{ height: '80px' }}
@@ -28,7 +45,7 @@ const Player = (props) => {
 			alt='headshot'></object>
 	);
 	return (
-		<Card style={{ height: '200px', width: '200px' }}>
+		<Card ref={drag} style={{ opacity, height: '200px', width: '200px' }}>
 			<CardContent>
 				<Typography variant='h7' component='div'>
 					{props.player[3]}

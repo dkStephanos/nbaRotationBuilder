@@ -2,14 +2,12 @@ import { useDrop } from 'react-dnd';
 import { Paper } from '@mui/material';
 import CourtPng from '../imgs/basketball-court.png';
 const style = {
-	height: '5rem',
-	width: '5rem',
-	marginRight: '1.5rem',
-	marginBottom: '1.5rem',
+	height: '4rem',
+	width: '4rem',
 	color: 'white',
 	padding: '.3rem',
 	textAlign: 'center',
-	fontSize: '3rem',
+	fontSize: '2.4rem',
 	lineHeight: 'normal',
 	float: 'left',
 	borderRadius: '50%',
@@ -18,7 +16,7 @@ const style = {
 };
 
 const position_styles = {
-	center: { top: '50%', left: '50%' },
+	center: { top: '40%', left: '65%' },
 };
 
 const Court = (props) => {
