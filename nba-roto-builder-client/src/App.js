@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import { fetchTeamRoster } from './actions/team';
-import Player from './components/player';
+import Roster from './components/roster';
 import MenuAppBar from './components/appbar';
 
 function App() {
@@ -14,9 +14,7 @@ function App() {
 	return (
 		<div className='App'>
 			<MenuAppBar />
-			{roster.map((player) => (
-				<Player player={player}></Player>
-			))}
+			<Roster roster={roster} />
 		</div>
 	);
 }
