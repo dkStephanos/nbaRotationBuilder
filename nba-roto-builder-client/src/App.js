@@ -5,9 +5,9 @@ import Roster from './components/roster';
 import Court from './components/court';
 import MenuAppBar from './components/appbar';
 import Table from './components/statsTable';
-import GameSlider from './components/gameSlider';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import Background from './imgs/background.jpg';
 
 function App() {
 	const [roster, setRoster] = useState([]);
@@ -17,12 +17,11 @@ function App() {
 	}, []);
 
 	return (
-		<div className='App'>
+		<div className='App' style={{ backgroundImage: `url(${Background})`, height: '1000px' }}>
 			<DndProvider backend={HTML5Backend}>
 				<MenuAppBar />
 				<Court />
 				<Roster roster={roster} />
-				<GameSlider />
 				<Table />
 			</DndProvider>
 		</div>

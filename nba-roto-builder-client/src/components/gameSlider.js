@@ -27,7 +27,7 @@ const marks = [
 
 const GameSlider = (props) => {
 	return (
-		<Box sx={{ paddingLeft: '40px', width: 650 }}>
+		<Box sx={{ paddingLeft: '40px', width: 650, position: 'absolute', top: '88%' }}>
 			<Slider defaultValue={0} step={1} max={48} valueLabelDisplay='auto' marks={marks} />
 		</Box>
 	);

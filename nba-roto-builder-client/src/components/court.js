@@ -1,6 +1,7 @@
 import { Paper } from '@mui/material';
 import Position from './position';
 import CourtPng from '../imgs/basketball-court.png';
+import GameSlider from './gameSlider';
 
 const positions = [
 	{ name: 'Point Guard', abrv: 'PG' },
@@ -27,12 +28,13 @@ const Court = (props) => {
 					backgroundImage: `url(${CourtPng})`,
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'contain',
-					height: '420px',
+					height: '480px',
 					position: 'relative',
 				}}>
 				{positions.map((pos) => (
 					<Position pos={pos} position_styles={position_styles} />
 				))}
+				<GameSlider />
 			</Paper>
 		</div>
 	);
