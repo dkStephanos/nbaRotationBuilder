@@ -5,6 +5,8 @@ import Roster from './components/roster';
 import Court from './components/court';
 import MenuAppBar from './components/appbar';
 import Table from './components/statsTable';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 function App() {
 	const [roster, setRoster] = useState([]);
@@ -15,12 +17,14 @@ function App() {
 
 	return (
 		<div className='App'>
-			<MenuAppBar />
-			<Roster roster={roster} />
-			<div>
-				<Court />
-				<Table />
-			</div>
+			<DndProvider backend={HTML5Backend}>
+				<MenuAppBar />
+				<Roster roster={roster} />
+				<div>
+					<Court />
+					<Table />
+				</div>
+			</DndProvider>
 		</div>
 	);
 }
