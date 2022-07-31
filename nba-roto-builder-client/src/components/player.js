@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { Card } from '@mui/material';
 import { useDrag } from 'react-dnd';
 import CardActions from '@mui/material/CardActions';
@@ -6,19 +5,9 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import Headshot from './headshot';
 
 const Player = (props) => {
-	const [error, setError] = useState(false);
-	useEffect(() => {
-		fetch(
-			`https://nba-players.herokuapp.com/players/${props.player[3].split(' ')[1]}/${
-				props.player[3].split(' ')[0]
-			}`
-		).then((data) => {
-			data.blob().then((data) => (data.type == 'image/png' ? setError(false) : setError(true)));
-		});
-	}, []);
-
 	const [{ isDragging }, drag] = useDrag(() => ({
 		type: 'player',
 		item: { player: props.player },
@@ -29,15 +18,6 @@ const Player = (props) => {
 	}));
 	const opacity = isDragging ? 0.4 : 1;
 
-	const headshot = (
-		<object
-			aria-label='headshot'
-			style={{ height: '80px' }}
-			data={`https://nba-players.herokuapp.com/players/${props.player[3].split(' ')[1]}/${
-				props.player[3].split(' ')[0]
-			}`}
-			type='image/png'></object>
-	);
 	return (
 		<Card ref={drag} style={{ opacity, height: '200px', width: '200px' }}>
 			<CardContent>
@@ -46,7 +26,7 @@ const Player = (props) => {
 				</Typography>
 			</CardContent>
 			<CardMedia>
-				{error ? <img style={{ height: '80px' }} alt='error' src='error.jpg' /> : headshot}
+				<Headshot player={props.player} />
 			</CardMedia>
 			<CardActions>
 				<Button size='small'>View Stats</Button>
