@@ -3,6 +3,14 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+	const [roster, setRoster] = useState([]);
+
+	useEffect(() => {
+		fetch('http://localhost:8000/api/roster/').then((data) =>
+			data.json().then((data) => setRoster(data.data))
+		);
+	}, []);
+
 	return (
 		<div className='App'>
 			<header className='App-header'>
@@ -18,6 +26,7 @@ function App() {
 					Learn React
 				</a>
 			</header>
+			{roster.map((player) => player)}
 		</div>
 	);
 }
