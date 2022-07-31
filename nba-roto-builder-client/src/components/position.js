@@ -37,7 +37,7 @@ const Position = (props) => {
 	}
 
 	return (
-		<Tooltip title={player && player[3]}>
+		<Tooltip title={player ? player[3] : 'Unassigned'}>
 			<div
 				ref={drop}
 				style={{ ...style, ...props.position_styles[props.pos.abrv], backgroundColor }}
