@@ -21,7 +21,9 @@ const rows = [
 
 const StatsTable = (props) => {
 	return (
-		<TableContainer component={Paper} style={{ display: 'inline-block', verticalAlign: 'bottom' }}>
+		<TableContainer
+			component={Paper}
+			style={{ display: 'inline-block', verticalAlign: 'bottom', width: '57%', float: 'left' }}>
 			<Table sx={{ minWidth: 650 }} size='small' aria-label='a dense table'>
 				<TableHead>
 					<TableRow>

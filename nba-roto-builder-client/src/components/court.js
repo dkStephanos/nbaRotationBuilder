@@ -2,18 +2,19 @@ import { useDrop } from 'react-dnd';
 import { Paper } from '@mui/material';
 import CourtPng from '../imgs/basketball-court.png';
 const style = {
-	height: '6rem',
-	width: '6rem',
+	height: '5rem',
+	width: '5rem',
 	marginRight: '1.5rem',
 	marginBottom: '1.5rem',
 	color: 'white',
-	padding: '1rem',
+	padding: '.3rem',
 	textAlign: 'center',
-	fontSize: '1rem',
+	fontSize: '3rem',
 	lineHeight: 'normal',
 	float: 'left',
 	borderRadius: '50%',
 	position: 'absolute',
+	zIndex: '100',
 };
 
 const position_styles = {
@@ -38,22 +39,24 @@ const Court = (props) => {
 	}
 
 	return (
-		<Paper
-			elevation='5'
-			style={{
-				backgroundImage: `url(${CourtPng})`,
-				backgroundRepeat: 'no-repeat',
-				backgroundSize: 'contain',
-				height: '500px',
-				position: 'relative',
-			}}>
-			<div
-				ref={drop}
-				style={{ ...style, ...position_styles['center'], backgroundColor }}
-				data-testid='dustbin'>
-				{isActive ? 'Release to drop' : 'Drag a Player here'}
-			</div>
-		</Paper>
+		<div style={{ display: 'inline-block', verticalAlign: 'bottom', width: '57%', float: 'left' }}>
+			<Paper
+				elevation='5'
+				style={{
+					backgroundImage: `url(${CourtPng})`,
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'contain',
+					height: '500px',
+					position: 'relative',
+				}}>
+				<div
+					ref={drop}
+					style={{ ...style, ...position_styles['center'], backgroundColor }}
+					data-testid='dustbin'>
+					{isActive ? 'Release to drop' : 'C'}
+				</div>
+			</Paper>
+		</div>
 	);
 };
 

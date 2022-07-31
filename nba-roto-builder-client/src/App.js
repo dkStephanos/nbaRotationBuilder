@@ -19,11 +19,10 @@ function App() {
 		<div className='App'>
 			<DndProvider backend={HTML5Backend}>
 				<MenuAppBar />
+				<Court />
 				<Roster roster={roster} />
-				<div>
-					<Court />
-					<Table />
-				</div>
+
+				<Table />
 			</DndProvider>
 		</div>
 	);

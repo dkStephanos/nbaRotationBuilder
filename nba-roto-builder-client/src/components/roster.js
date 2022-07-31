@@ -11,9 +11,10 @@ const Roster = (props) => {
 			style={{
 				overflow: 'auto',
 				height: '1000px',
-				width: '200px',
+				width: '15%',
 				display: 'inline-block',
 				float: 'right',
+				zIndex: '1000',
 			}}>
 			<Typography variant='h5'>Team Roster</Typography>
 			<List>
