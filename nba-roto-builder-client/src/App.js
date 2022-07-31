@@ -8,10 +8,12 @@ import Table from './components/statsTable';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import Background from './imgs/background.jpg';
+import { makeRotationsDict } from './constants';
 
 function App() {
 	const [roster, setRoster] = useState([]);
 	const [gameMin, setGameMin] = useState(0);
+	const [rotations, setRotations] = useState(makeRotationsDict());
 
 	useEffect(() => {
 		fetchTeamRoster('1610612756', setRoster);
