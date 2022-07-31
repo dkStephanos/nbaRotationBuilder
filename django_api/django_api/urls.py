@@ -20,6 +20,6 @@ from nba_roto_builder.views import Players, Lineups
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('players/', Players.as_view())
-    path('lineups/', Lineups.as_view())
+    path('players/', Players.as_view()),
+    path('lineups/', Lineups.as_view()),
 ]
