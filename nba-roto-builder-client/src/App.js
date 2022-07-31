@@ -4,6 +4,7 @@ import { fetchTeamRoster } from './actions/team';
 import Roster from './components/roster';
 import Totals from './components/totals';
 import Court from './components/court';
+import Actions from './components/actions';
 import MenuAppBar from './components/appbar';
 import Table from './components/statsTable';
 import { DndProvider } from 'react-dnd';
@@ -47,6 +48,7 @@ function App() {
 					}}
 				/>
 				<Roster roster={roster} />
+				<Actions />
 				<Totals rotations={rotations} />
 				<Table />
 			</DndProvider>
