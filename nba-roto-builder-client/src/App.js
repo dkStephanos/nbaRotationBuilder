@@ -46,8 +46,8 @@ function App() {
 						setRotations(newRotation);
 					}}
 				/>
-				<Totals rotations={rotations} />
 				<Roster roster={roster} />
+				<Totals rotations={rotations} />
 				<Table />
 			</DndProvider>
 		</div>
