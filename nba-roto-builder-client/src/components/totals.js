@@ -2,8 +2,7 @@ import { Card } from '@mui/material';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { getPercentAssigned, getPercentAssignedByPosition } from '../utils/rotations';
-
-const POSITIONS = ['PG', 'SG', 'SF', 'PF', 'C'];
+import { POSITIONS } from '../constants';
 
 const Totals = (props) => {
 	return (
